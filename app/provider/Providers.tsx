@@ -11,7 +11,38 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         appearance: {
           theme: 'light',
           accentColor: '#676FFF',
+          showWalletLoginFirst: false,
         },
+        embeddedWallets: {
+          createOnLogin: 'users-without-wallets',
+        },
+        loginMethods: ['email', 'wallet'],
+        defaultChain: {
+          id: 1,
+          name: 'Ethereum',
+          nativeCurrency: {
+            name: 'Ether',
+            symbol: 'ETH',
+            decimals: 18,
+          },
+          rpcUrls: {
+            default: { http: ['https://mainnet.infura.io/v3/'] },
+          },
+        },
+        supportedChains: [
+          {
+            id: 1,
+            name: 'Ethereum',
+            nativeCurrency: {
+              name: 'Ether',
+              symbol: 'ETH',
+              decimals: 18,
+            },
+            rpcUrls: {
+              default: { http: ['https://mainnet.infura.io/v3/'] },
+            },
+          },
+        ],
       }}
     >
       {children}
